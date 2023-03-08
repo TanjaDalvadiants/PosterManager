@@ -16,14 +16,14 @@ public class MovieManager {
 
     }
 
-    public void add(MovieItems item) {
+    public void save(MovieItems item) {
         int resultLength;
 
         if (items.length < limit) {
             resultLength = items.length;
-            ;
+
         } else {
-            return;
+            resultLength = limit;
         }
 
         MovieItems[] tmp = new MovieItems[resultLength + 1];
@@ -48,8 +48,9 @@ public class MovieManager {
         if (items.length < limit) {
             resultLength = items.length;
 
-        } else
+        } else {
             resultLength = limit;
+        }
 
 
         MovieItems[] result = new MovieItems[resultLength];
@@ -59,6 +60,28 @@ public class MovieManager {
         return result;
 
     }
+    public void removeById(int id) {
+        int resultLength;
+
+        if (items.length < limit) {
+            resultLength = items.length;
+
+        } else {
+            resultLength = limit;
+        }
+        int length = items.length - 1;
+        MovieItems[] tmp = new MovieItems[resultLength + 1];
+        int index = 0;
+        for (MovieItemitems : items) {
+            if (item.getId() != id) {
+                tmp[index] = item;
+                index++;
+            }
+        }
+        // меняем наши элементы
+        items = tmp;
+    }
+
 
 }
 
