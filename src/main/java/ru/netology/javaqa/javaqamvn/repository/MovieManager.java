@@ -60,7 +60,8 @@ public class MovieManager {
         return result;
 
     }
-    public void removeById(int id) {
+
+    public void removeById(MovieItems id) {
         int resultLength;
 
         if (items.length < limit) {
@@ -69,17 +70,21 @@ public class MovieManager {
         } else {
             resultLength = limit;
         }
-        int length = items.length - 1;
-        MovieItems[] tmp = new MovieItems[resultLength + 1];
-        int index = 0;
-        for (MovieItemitems : items) {
-            if (item.getId() != id) {
-                tmp[index] = item;
-                index++;
+
+        MovieItems[] tmp = new MovieItems[resultLength - 1];
+        int copyToIndex = 0;
+        for (MovieItems item : items) {
+            if (item.getId() != id.getId()) {
+                tmp[copyToIndex] = item;
+                copyToIndex++;
+
             }
         }
-        // меняем наши элементы
         items = tmp;
+    }
+
+    public MovieItems[] getItems() {
+        return items;
     }
 
 
