@@ -16,14 +16,14 @@ public class MovieManager {
 
     }
 
-    public void add(MovieItems item) {
+    public void save(MovieItems item) {
         int resultLength;
 
         if (items.length < limit) {
             resultLength = items.length;
-            ;
+
         } else {
-            return;
+            resultLength = limit;
         }
 
         MovieItems[] tmp = new MovieItems[resultLength + 1];
@@ -48,8 +48,9 @@ public class MovieManager {
         if (items.length < limit) {
             resultLength = items.length;
 
-        } else
+        } else {
             resultLength = limit;
+        }
 
 
         MovieItems[] result = new MovieItems[resultLength];
@@ -59,6 +60,33 @@ public class MovieManager {
         return result;
 
     }
+
+    public void removeById(MovieItems id) {
+        int resultLength;
+
+        if (items.length < limit) {
+            resultLength = items.length;
+
+        } else {
+            resultLength = limit;
+        }
+
+        MovieItems[] tmp = new MovieItems[resultLength - 1];
+        int copyToIndex = 0;
+        for (MovieItems item : items) {
+            if (item.getId() != id.getId()) {
+                tmp[copyToIndex] = item;
+                copyToIndex++;
+
+            }
+        }
+        items = tmp;
+    }
+
+    public MovieItems[] getItems() {
+        return items;
+    }
+
 
 }
 
