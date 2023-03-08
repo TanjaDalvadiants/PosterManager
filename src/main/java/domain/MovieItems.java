@@ -30,6 +30,7 @@ public class MovieItems {
     public int getReleaseDate() {
 
         return releaseDate;
+
     }
 
     public MovieItems(int id, String movieName, int releaseDate) {
