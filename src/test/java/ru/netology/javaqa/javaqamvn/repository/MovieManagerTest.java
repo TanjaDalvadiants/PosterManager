@@ -183,6 +183,77 @@ public class MovieManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+    @Test
+    public void ShouldRemoveByIdIfLimitEquals() {
+        MovieManager manager = new MovieManager();
+        manager.save(item1);
+        manager.save(item2);
+        manager.save(item3);
+        manager.save(item4);
+        manager.save(item5);
+        manager.save(item6);
+        manager.save(item7);
+        manager.save(item8);
+        manager.save(item9);
+        manager.save(item10);
+        manager.removeById(item2);
+
+        MovieItems[] expected = {item1, item3, item4, item5, item6, item7, item8, item9, item10};
+        MovieItems[] actual = manager.getItems();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void ShouldFindByIdIfNull() {
+        MovieManager manager = new MovieManager();
+        manager.save(item1);
+        manager.save(item2);
+        manager.save(item3);
+        manager.save(item4);
+        manager.save(item5);
+        manager.findById(item6);
+
+        MovieItems[] expected = {null};
+        MovieItems[] actual = manager.getItems();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void ShouldFindById() {
+        MovieManager manager = new MovieManager();
+        manager.save(item1);
+        manager.save(item2);
+        manager.save(item3);
+        manager.save(item4);
+        manager.save(item5);
+        manager.findById(item5);
+
+        MovieItems[] expected = {item5};
+        MovieItems[] actual = manager.getItems();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void ShouldFindByIdIfLimitEquals() {
+        MovieManager manager = new MovieManager();
+        manager.save(item1);
+        manager.save(item2);
+        manager.save(item3);
+        manager.save(item4);
+        manager.save(item5);
+        manager.save(item6);
+        manager.save(item7);
+        manager.save(item8);
+        manager.save(item9);
+        manager.save(item10);
+        manager.findById(item5);
+
+        MovieItems[] expected = {item5};
+        MovieItems[] actual = manager.getItems();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 
 
 }

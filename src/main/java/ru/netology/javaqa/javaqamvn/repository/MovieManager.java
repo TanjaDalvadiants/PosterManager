@@ -2,6 +2,9 @@ package ru.netology.javaqa.javaqamvn.repository;
 
 import domain.MovieItems;
 
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+
 public class MovieManager {
     private MovieItems[] items = new MovieItems[0];
     private int limit;
@@ -87,6 +90,31 @@ public class MovieManager {
         return items;
     }
 
+    public void findById(MovieItems id) {
+        int resultLength;
+
+        if (items.length < limit) {
+            resultLength = items.length;
+
+        } else {
+            resultLength = limit;
+        }
+
+        MovieItems[] tmp = new MovieItems[resultLength-(resultLength-1)];
+        int copyToIndex = 0;
+        for (MovieItems item : items) {
+            if (item.getId() == id.getId()) {
+                tmp[copyToIndex] = item;
+                copyToIndex++;
+
+            }
+        }
+        items = tmp;
+    }
 
 }
+
+
+
+
 
