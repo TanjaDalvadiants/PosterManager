@@ -7,9 +7,16 @@ import java.util.ArrayList;
 
 public class MovieManager {
     private MovieRepository repo;
+
+
+
+
+
+
     public MovieManager(MovieRepository repo) {
         this.repo = repo;
     }
+
     public  void add (MovieItems item){
         repo.save(item);
     }
@@ -20,6 +27,18 @@ public class MovieManager {
             reversed[i] = all[all.length - 1 -i];
         }
         return reversed;
+    }
+    public MovieItems[] findLast() {
+
+
+
+        MovieItems[] all = repo.getItems();
+        MovieItems[] result = new MovieItems[all.length];
+        for (int i = 0; i < result.length; i = i + 1) {
+            result[i] = all[all.length - 1 - i];
+        }
+        return result;
+
     }
 
 

@@ -5,6 +5,7 @@ import domain.MovieItems;
 public class MovieRepository {
     private MovieItems[] items = new MovieItems[0];
 
+
     public void save(MovieItems item) {
 
 
@@ -24,15 +25,7 @@ public class MovieRepository {
 
     }
 
-    public MovieItems[] findLast() {
 
-        MovieItems[] result = new MovieItems[items.length];
-        for (int i = 0; i < result.length; i = i + 1) {
-            result[i] = items[items.length - 1 - i];
-        }
-        return result;
-
-    }
 
     public void removeById(MovieItems id) {
 
@@ -49,6 +42,7 @@ public class MovieRepository {
     }
 
     public MovieItems[] getItems() {
+
         return items;
     }
 

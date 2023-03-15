@@ -21,7 +21,7 @@ public class MovieRepositoryTest {
     MovieItems item8 = new MovieItems(8, "drama", 2008);
     MovieItems item9 = new MovieItems(9, "drama", 2009);
     MovieItems item10 = new MovieItems(10, "drama", 2010);
-    MovieItems item11 = new MovieItems(10, "drama", 2010);
+    MovieItems item11 = new MovieItems(11, "drama", 2010);
 
     @Test
     public void ShouldFindAllIfMoreThanLimit() {
@@ -90,90 +90,9 @@ public class MovieRepositoryTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void ShouldFindLast() {
-        MovieRepository repo = new MovieRepository();
-        repo.save(item1);
-        repo.save(item2);
-        repo.save(item3);
 
-        MovieItems[] expected = {item3, item2, item1};
-        MovieItems[] actual = repo.findLast();
 
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-//    @Test
-//    public void ShouldFindLastIfAboveLimit() {
-//        MovieRepository repo = new MovieRepository();
-//        repo.save(item1);
-//        repo.save(item2);
-//        repo.save(item3);
-//        repo.save(item4);
-//        repo.save(item5);
-//        repo.save(item6);
-//        repo.save(item7);
-//        repo.save(item8);
-//        repo.save(item9);
-//        repo.save(item10);
-//        repo.save(item11);
-//        MovieItems[] expected = {item11, item10, item9, item8, item7, item6, item5, item4, item3, item2};
-//        MovieItems[] actual = repo.findLast();
 //
-//        Assertions.assertArrayEquals(expected, actual);
-//    }
-
-//    @Test
-//    public void ShouldFindAllIfLessThanLimitSecondConstructor() {
-//        MovieManager manager = new MovieManager(5);
-//        manager.save(item1);
-//        manager.save(item2);
-//        manager.save(item3);
-//
-//        MovieItems[] expected = {item1, item2, item3};
-//        MovieItems[] actual = manager.findAll();
-//
-//        Assertions.assertArrayEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void ShouldFindAllIfMoreThanLimitSecondConstructor() {
-//        MovieManager manager = new MovieManager(2);
-//        manager.save(item1);
-//        manager.save(item2);
-//        manager.save(item3);
-//
-//        MovieItems[] expected = {item1, item2, item3};
-//        MovieItems[] actual = manager.findAll();
-//
-//        Assertions.assertArrayEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void ShouldFindLastIfBelowLimitSecondConstructor() {
-//        MovieManager manager = new MovieManager(3);
-//        manager.save(item1);
-//        manager.save(item2);
-//
-//
-//        MovieItems[] expected = {item2, item1};
-//        MovieItems[] actual = manager.findLast();
-//
-//        Assertions.assertArrayEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void ShouldFindLastIfAboveLimitSecondConstructor() {
-//        MovieRepository repo = new MovieRepository(1);
-//        repo.save(item1);
-//        repo.save(item2);
-//
-//
-//        MovieItems[] expected = {item2};
-//        MovieItems[] actual = repo.findLast();
-//
-//        Assertions.assertArrayEquals(expected, actual);
-//    }
 
     @Test
     public void ShouldRemoveById() {
